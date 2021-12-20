@@ -61,7 +61,7 @@ rm policy expression PE_LOG4SHELL_CTXPS
 
 rm policy patset PS_CVE_2021_44228
 
-## NEW - 15/12/2021
+## 15/12/2021
 add audit messageaction LOG_LOG4SHELL ALERT "\"Log4Shell  CVE-2021-44228 match - Client IP=\" + CLIENT.IP.SRC + \"; REQ Host=\" + HTTP.REQ.HOSTNAME + \"; REQ URL=\" + HTTP.REQ.URL.DECODE_USING_TEXT_MODE + \" ; REQ HEADERS=\" + HTTP.REQ.FULL_HEADER.DECODE_USING_TEXT_MODE" -logtoNewnslog YES
 add policy expression PE_LOG4SHELL_HEADER "HTTP.REQ.FULL_HEADER.DECODE_USING_TEXT_MODE.REGEX_MATCH(re#\\${+\?(.*\?:|.*\?:.*-)\?[jJlLnNdDiIaApPsSmMrRoOhH}:]*//#)"
 add policy expression PE_LOG4SHELL_URL "HTTP.REQ.URL.PATH_AND_QUERY.DECODE_USING_TEXT_MODE.REGEX_MATCH(re#\\${+\?(.*\?:|.*\?:.*-)\?[jJlLnNdDiIaApPsSmMrRoOhH}:]*//#)"
